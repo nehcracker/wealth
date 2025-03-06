@@ -25,12 +25,7 @@ const HeroSection = () => {
         </p>
       </div>
       
-      <div className="contact-button">
-        <button aria-label="Contact Us">
-          <span className="button-text">Contact Us</span>
-          <span className="chat-icon">💬</span>
-        </button>
-      </div>
+     
     </div>
   );
 };
