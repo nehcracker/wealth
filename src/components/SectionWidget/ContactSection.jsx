@@ -71,18 +71,18 @@ const ContactSection = () => {
     {
       id: 1,
       name: 'Main Temple',
-      address: '1234 Spiritual Way, Serenity Hills, CA 90210',
+      address: 'Kasarmikatu 16 D, 00130 Helsinki, Finland',
       phone: '+1 (555) 123-4567',
-      email: 'temple@wealthgurus.com',
-      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.7152203584424!2d-118.50000000000000!3d34.000000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAwJzAwLjAiTiAxMTjCsDMwJzAwLjAiVw!5e0!3m2!1sen!2sus!4v1615000000000!5m2!1sen!2sus'
+      email: 'temple@wealth-gurus.org/',
+      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1985.142935015046!2d24.945499776684667!3d60.161812575028144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc86d1452eb%3A0x3d6cd4b793d2d7fd!2sKasarmikatu%2016d%2C%2000130%20Helsinki%2C%20Finland!5e0!3m2!1sen!2ske!4v1741298984196!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
     },
     {
       id: 2,
-      name: 'Meditation Center',
-      address: '5678 Enlightenment Blvd, Harmony Valley, NY 10001',
-      phone: '+1 (555) 987-6543',
+      name: 'Meditation & Sprituality Center Africa',
+      address: 'Unga House, Muthithi Rd, Nairobi, Kenya',
+      phone: '+254 (555) 987-6543',
       email: 'meditation@wealthgurus.com',
-      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1015489485225!2d-74.00000000000000!3d40.750000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzAwLjAiTiA3NMKwMDAnMDAuMCJX!5e0!3m2!1sen!2sus!4v1615000000000!5m2!1sen!2sus'
+      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.848928338891!2d36.80473579999999!3d-1.2630472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173b871a4741%3A0xd26b273294db1e04!2sUnga%20House!5e0!3m2!1sen!2ske!4v1741298847605!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
     }
   ];
   
