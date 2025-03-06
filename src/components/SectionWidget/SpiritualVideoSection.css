@@ -1,0 +1,564 @@
+/* SpiritualVideoSection.css - Scoped styles for the spiritual video section */
+
+.spiritual-video-section {
+    position: relative;
+    padding: 120px 30px;
+    background-color: #0c0c14;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* Mystical background symbols */
+  .mystical-symbol {
+    position: absolute;
+    opacity: 0.07;
+    z-index: 1;
+  }
+  
+  .mystical-symbol.top-left {
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' d='M50 0 L100 50 L50 100 L0 50 Z M50 25 L75 50 L50 75 L25 50 Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(15deg);
+  }
+  
+  .mystical-symbol.bottom-right {
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle fill='none' stroke='%23ffffff' stroke-width='2' cx='50' cy='50' r='45'/%3E%3Ccircle fill='none' stroke='%23ffffff' stroke-width='2' cx='50' cy='50' r='30'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='2' d='M50 5 L50 95 M5 50 L95 50 M14.6 14.6 L85.4 85.4 M14.6 85.4 L85.4 14.6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(-10deg);
+  }
+  
+  /* Main container */
+  .video-section-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1400px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Video side styling */
+  .video-container {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+  
+  .video-container.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(123, 31, 162, 0.5);
+    aspect-ratio: 16/9;
+    background-color: #000;
+  }
+  
+  .video-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(123, 31, 162, 0.1) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .video-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #7b1fa2, #ffd700, #7b1fa2);
+    z-index: -1;
+    border-radius: 10px;
+    filter: blur(10px);
+    opacity: 0.5;
+    animation: borderGlow 6s ease infinite;
+  }
+  
+  .video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  
+  .play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .play-icon {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 26px;
+    border-color: transparent transparent transparent white;
+    margin-left: 5px;
+  }
+  
+  .pause-icon {
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  
+  .pause-icon::before,
+  .pause-icon::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 30px;
+    background-color: white;
+    top: 0;
+  }
+  
+  .pause-icon::before {
+    left: 8px;
+  }
+  
+  .pause-icon::after {
+    right: 8px;
+  }
+  
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .pulse-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(255, 215, 0, 0.1);
+    animation: pulse 3s infinite;
+  }
+  
+  /* Content side styling */
+  .video-content {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    transition-delay: 0.3s;
+    color: white;
+    position: relative;
+  }
+  
+  .video-content.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .spiritual-emblem {
+    position: absolute;
+    top: -40px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle fill='none' stroke='%23ffd700' stroke-width='2' cx='50' cy='50' r='40'/%3E%3Cpath fill='none' stroke='%23ffd700' stroke-width='2' d='M50 10 L50 90 M10 50 L90 50 M50 50 L85 15 M50 50 L85 85 M50 50 L15 85 M50 50 L15 15'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    opacity: 0.7;
+  }
+  
+  .video-content h2 {
+    font-size: 2.8rem;
+    font-family: 'hallen' !important;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 2px 10px rgba(123, 31, 162, 0.5);
+  }
+  
+  .content-divider {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .content-divider::before,
+  .content-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 215, 0, 0.5), transparent);
+  }
+  
+  .divider-symbol {
+    width: 30px;
+    height: 30px;
+    margin: 0 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffd700' d='M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    opacity: 0.8;
+  }
+  
+  .main-description {
+    font-size: 1.1rem;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+  }
+  
+  .spiritual-benefits {
+    list-style: none;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+  
+  .spiritual-benefits li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .spiritual-benefits li:hover {
+    transform: translateX(10px);
+  }
+  
+  .benefit-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle fill='%23ffd700' cx='50' cy='50' r='25'/%3E%3Ccircle fill='none' stroke='%23ffd700' stroke-width='8' cx='50' cy='50' r='45'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .primary-button {
+    padding: 15px 30px;
+    background-color: #7b1fa2;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(123, 31, 162, 0.4);
+    z-index: 1;
+  }
+  
+  .primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(123, 31, 162, 0.6);
+  }
+  
+  .button-aura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(123, 31, 162, 0.8), rgba(255, 215, 0, 0.8));
+    z-index: -1;
+    transition: all 0.5s ease;
+    transform: translateX(-100%);
+  }
+  
+  .primary-button:hover .button-aura {
+    transform: translateX(0);
+  }
+  
+  .secondary-button {
+    padding: 14px 30px;
+    background-color: transparent;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .secondary-button:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+  }
+  
+  /* Animations */
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes borderGlow {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 2490px) {
+    .video-section-container {
+      max-width: 2200px;
+      gap: 100px;
+    }
+    
+    .video-content h2 {
+      font-size: 3.5rem;
+    }
+    
+    .main-description {
+      font-size: 1.4rem;
+    }
+    
+    .spiritual-benefits li {
+      font-size: 1.3rem;
+    }
+    
+    .action-buttons button {
+      padding: 20px 40px;
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .spiritual-video-section {
+      padding: 100px 30px;
+    }
+    
+    .video-section-container {
+      gap: 40px;
+    }
+    
+    .video-content h2 {
+      font-size: 2.4rem;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .video-section-container {
+      gap: 30px;
+    }
+    
+    .video-content h2 {
+      font-size: 2rem;
+    }
+    
+    .main-description {
+      font-size: 1rem;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .primary-button, .secondary-button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .spiritual-video-section {
+      padding: 80px 20px;
+    }
+    
+    .video-section-container {
+      flex-direction: column;
+      gap: 50px;
+    }
+    
+    .video-container {
+      transform: translateY(-30px);
+      width: 100%;
+    }
+    
+    .video-container.visible {
+      transform: translateY(0);
+    }
+    
+    .video-content {
+      transform: translateY(30px);
+      width: 100%;
+    }
+    
+    .video-content.visible {
+      transform: translateY(0);
+    }
+    
+    .content-divider {
+      margin-bottom: 20px;
+    }
+    
+    .video-content h2 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
+    .spiritual-emblem {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .spiritual-video-section {
+      padding: 60px 15px;
+    }
+    
+    .play-button {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .play-icon {
+      border-width: 10px 0 10px 20px;
+    }
+    
+    .pause-icon::before,
+    .pause-icon::after {
+      width: 6px;
+      height: 24px;
+    }
+    
+    .pause-icon::before {
+      left: 6px;
+    }
+    
+    .pause-icon::after {
+      right: 6px;
+    }
+    
+    .video-content h2 {
+      font-size: 1.6rem;
+    }
+    
+    .main-description {
+      font-size: 0.95rem;
+    }
+    
+    .spiritual-benefits li {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Landscape orientation on mobile devices */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .spiritual-video-section {
+      padding: 40px 20px;
+    }
+    
+    .video-section-container {
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    .video-container {
+      transform: translateX(-30px);
+    }
+    
+    .video-content {
+      transform: translateX(30px);
+    }
+    
+    .video-content h2 {
+      font-size: 1.5rem;
+      text-align: left;
+    }
+    
+    .main-description {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .spiritual-benefits {
+      margin-bottom: 20px;
+    }
+    
+    .spiritual-benefits li {
+      margin-bottom: 8px;
+    }
+    
+    .spiritual-emblem {
+      width: 50px;
+      height: 50px;
+      top: -20px;
+      right: 0;
+      left: auto;
+      transform: none;
+    }
+  }

@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import HeroSection from './components/HeroSection/HeroSection';
+import SectionWidget from './components/SectionWidget/SectionWidget';
+import LibrarySection from './components/SectionWidget/LibrarySection';
+import SpiritualCard from './components/SectionWidget/SpiritualCards';
+import SpiritualVideoSection from './components/SectionWidget/SpiritualVideoSection';
+import ContactSection from './components/SectionWidget/ContactSection';
+import SimpleFooter from './components/SectionWidget/SimpleFooter';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <HeroSection />
+      <SpiritualCard />
+      <LibrarySection />
+      <SectionWidget />
+      <SpiritualVideoSection />
+      <ContactSection />
+      <SimpleFooter />
+      
+      
+      
     </div>
   );
 }

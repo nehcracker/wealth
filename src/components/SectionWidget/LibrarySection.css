@@ -1,0 +1,404 @@
+/* LibrarySection.css - Scoped styles for the library section component */
+
+.library-section {
+    position: relative;
+    
+    width: 100%;
+    background-image: url('/public/library-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    overflow: hidden;
+  }
+  
+  /* Fix for iOS Safari - background-attachment: fixed issue */
+  @supports (-webkit-touch-callout: none) {
+    .library-section {
+      background-attachment: scroll;
+    }
+  }
+  
+  .library-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  .library-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    gap: 50px;
+    margin: 0 auto;
+  }
+  
+  /* Left side - Image */
+  .library-image-container {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+  }
+  
+  .library-image-container.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .library-image {
+    width: 100%;
+    height: 500px;
+    background-image: url('/public/image23.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+  
+  .library-image:hover {
+    transform: scale(1.03);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .library-image:hover .image-overlay {
+    opacity: 1;
+  }
+  
+  /* Right side - Content */
+  .library-content {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    transition-delay: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .library-content.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .library-content h2 {
+    font-size: 1rem;
+    text-align: justify;
+    font-family: 'hallen', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+  }
+  
+  .library-content h2:hover {
+    transform: translateY(-5px);
+  }
+  
+  .library-content p {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #ccc;
+    transition: color 0.3s ease;
+  }
+  
+  .library-content p:hover {
+    color: white;
+  }
+  
+  .explore-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    align-self: flex-start;
+  }
+  
+  .explore-button:hover {
+    background-color: white;
+    color: #121212;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  .explore-button:active {
+    transform: translateY(-1px);
+  }
+  
+  /* Responsive styles - Desktop first approach */
+  /* Large desktop screens (1440px to 2489px) */
+@media (min-width: 1440px) and (max-width: 2489px) {
+    .library-container {
+      max-width: 1400px;
+      gap: 80px;
+    }
+    
+    .library-content h2 {
+      font-size: 3rem;
+    }
+    
+    .library-content p {
+      font-size: 1.2rem;
+    }
+    
+    .library-image {
+      height: 600px;
+    }
+    
+    .explore-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Large desktop screens (1440px and above) */
+  @media (min-width: 1440px) {
+    .library-container {
+      
+      gap: 80px;
+    }
+    
+    .library-content h2 {
+      font-size: 1.55rem;
+    }
+    
+    .library-content p {
+      font-size: 1.2rem;
+    }
+    
+    .library-image {
+      height: 600px;
+    }
+    
+    .explore-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Regular desktop and laptops (992px - 1439px) */
+  @media (max-width: 1439px) {
+    .library-container {
+      gap: 40px;
+    }
+  }
+  
+  /* Tablets and small laptops (768px - 991px) */
+  @media (max-width: 991px) {
+    .library-section {
+      padding: 60px 20px;
+    }
+    
+    .library-container {
+      gap: 30px;
+    }
+    
+    .library-content h2 {
+      font-size: 2rem;
+    }
+    
+    .library-content p {
+      font-size: 1rem;
+    }
+    
+    .library-image {
+      height: 400px;
+    }
+    
+    .explore-button {
+      padding: 10px 20px;
+    }
+  }
+  
+  /* Tablets portrait and large mobile (576px - 767px) */
+  @media (max-width: 767px) {
+    .library-section {
+      padding: 50px 20px;
+    }
+    
+    .library-container {
+      flex-direction: column-reverse;
+      gap: 40px;
+    }
+    
+    /* Adjust animation directions for mobile layout */
+    .library-image-container {
+      transform: translateY(50px);
+    }
+    
+    .library-image-container.visible {
+      transform: translateY(0);
+    }
+    
+    .library-content {
+      transform: translateY(-50px);
+      align-items: center;
+      text-align: center;
+    }
+    
+    .library-content.visible {
+      transform: translateY(0);
+    }
+    
+    .library-image {
+      height: 350px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .explore-button {
+      align-self: center;
+    }
+  }
+  
+  /* Mobile devices (320px - 575px) */
+  @media (max-width: 575px) {
+    .library-section {
+      padding: 40px 15px;
+    }
+    
+    .library-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .library-content p {
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+    
+    .library-image {
+      height: 250px;
+    }
+    
+    .explore-button {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Small mobile devices (320px and below) */
+  @media (max-width: 320px) {
+    .library-content h2 {
+      font-size: 1.3rem;
+    }
+    
+    .library-content p {
+      font-size: 0.9rem;
+    }
+    
+    .library-image {
+      height: 200px;
+    }
+  }
+  
+  /* iPhone X and newer devices with notches and safe areas */
+  @supports (padding: max(0px)) {
+    .library-section {
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
+    }
+  }
+  
+  /* Landscape orientation on mobile devices */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .library-section {
+      padding: 30px 20px;
+    }
+    
+    .library-container {
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    .library-image {
+      height: 200px;
+    }
+    
+    .library-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .library-content p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .library-content {
+      text-align: left;
+      align-items: flex-start;
+    }
+    
+    .explore-button {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* For foldable devices and unusual aspect ratios */
+  @media (aspect-ratio: 1/1), (aspect-ratio: 21/9) {
+    .library-container {
+      max-width: 90%;
+    }
+  }
+  
+  /* Print styles for better document printing */
+  @media print {
+    .library-section {
+      background-image: none;
+      background-color: white;
+      color: black;
+      padding: 2cm;
+    }
+    
+    .library-overlay {
+      display: none;
+    }
+    
+    .library-content h2, 
+    .library-content p {
+      color: black;
+    }
+    
+    .explore-button {
+      display: none;
+    }
+  }

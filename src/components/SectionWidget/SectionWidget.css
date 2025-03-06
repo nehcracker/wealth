@@ -1,0 +1,247 @@
+/* SectionWidget.css - Scoped styles for the section widget component */
+
+.section-widget {
+    
+    width: 100%;
+    background-color: #1f1f1f89;
+    padding: 100px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Mission icon with crown */
+  .mission-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: gold;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  
+  .crown-icon {
+    margin-right: 10px;
+    font-size: 1.4rem;
+  }
+  
+  /* Content container */
+  .widget-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 50px;
+  }
+  
+  /* Left side content */
+  .left-content {
+    flex: 1;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+  
+  .left-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .left-content h2 {
+    text-align: justify;
+    font-family: 'hallen', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    max-width: 600px;
+    color: white;
+    font-weight: 700;
+  }
+  
+  .left-content p {
+    font-size: 1.1rem;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #a0a0a0;
+    max-width: 500px;
+  }
+  
+  /* Right side image */
+  .right-image {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    transition-delay: 0.3s; /* Slight delay after left content animates */
+  }
+  
+  .right-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .right-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: block;
+  }
+  
+  /* Responsive styles */
+  
+  /* Large desktop */
+  @media (min-width: 1440px) {
+    .left-content h2 {
+      font-size: 1.55rem;
+    }
+    
+    .left-content p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Desktops and laptops */
+  @media (max-width: 1200px) {
+    .widget-content {
+      max-width: 90%;
+    }
+    
+    .left-content h2 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  /* Tablets and small laptops */
+  @media (max-width: 992px) {
+    .section-widget {
+      padding: 80px 20px;
+    }
+    
+    .widget-content {
+      gap: 40px;
+    }
+    
+    .left-content h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .left-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Tablets portrait and large mobile */
+  @media (max-width: 768px) {
+    .section-widget {
+      padding: 60px 20px;
+    }
+    
+    .mission-icon {
+      margin-bottom: 40px;
+    }
+    
+    .widget-content {
+      flex-direction: column;
+      gap: 50px;
+    }
+    
+    .left-content, .right-image {
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .left-content {
+      text-align: center;
+    }
+    
+    .left-content h2, .left-content p {
+      max-width: 100%;
+    }
+    
+    /* Adjust animations for mobile layout */
+    .right-image {
+      transform: translateY(50px); /* Change from X to Y translation */
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+    
+    .right-image.visible {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Mobile devices */
+  @media (max-width: 576px) {
+    .section-widget {
+      padding: 50px 20px;
+    }
+    
+    .mission-icon {
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+    
+    .crown-icon {
+      font-size: 1.2rem;
+    }
+    
+    .left-content h2 {
+      font-size: 1.8rem;
+    }
+    
+    .left-content p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Small mobile devices */
+  @media (max-width: 375px) {
+    .section-widget {
+      padding: 40px 15px;
+    }
+    
+    .left-content h2 {
+      font-size: 1.5rem;
+    }
+    
+    .left-content p {
+      font-size: 0.9rem;
+    }
+    
+    .widget-content {
+      gap: 30px;
+    }
+  }
+  
+  /* Very small mobile devices */
+  @media (max-width: 320px) {
+    .left-content h2 {
+      font-size: 1.3rem;
+    }
+    
+    .right-image img {
+      border-radius: 6px;
+    }
+  }
+  
+  /* Landscape orientation on mobile devices */
+  @media (max-height: 450px) and (orientation: landscape) {
+    .section-widget {
+      padding: 30px 20px;
+    }
+    
+    .mission-icon {
+      margin-bottom: 20px;
+    }
+    
+    .widget-content {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }

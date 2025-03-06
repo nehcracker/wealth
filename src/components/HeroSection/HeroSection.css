@@ -1,0 +1,320 @@
+/* HeroSection.css */
+.hero-section {
+  height: 90vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+  /* Background image with fixed attachment for parallax effect */
+  background-image: url('/public/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-origin: border-box;
+}
+
+/* Fix for iOS Safari - background-attachment: fixed issue */
+@supports (-webkit-touch-callout: none) {
+  .hero-section {
+    background-attachment: scroll;
+  }
+}
+
+/* Overlay to darken the background */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Content container */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: grey;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Main title styling */
+.hero-title {
+  font-size: 5rem;
+  font-family: 'hallen', sans-serif;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtitle styling */
+.hero-subtitle {
+  font-size: 2rem;
+  font-family: 'hallen', sans-serif;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.3s;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Description text styling */
+.hero-description {
+  font-size: 1.1rem;
+  color: white;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.6s;
+}
+
+/* Animation classes */
+.hero-title.visible,
+.hero-subtitle.visible,
+.hero-description.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll indicator styling removed */
+
+/* Contact button styling */
+.contact-button {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  z-index: 2;
+}
+
+.contact-button button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-button button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.contact-button button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-icon {
+  margin-left: 8px;
+}
+
+/* Bounce animation removed */
+
+/* Large desktop screens */
+@media (min-width: 1440px) {
+  .hero-title {
+    font-size: 6rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 3rem;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+  }
+}
+
+/* Regular laptops and small desktops */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2.2rem;
+  }
+}
+
+/* Tablets and small laptops */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .contact-button {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+/* Tablets portrait */
+@media (max-width: 768px) {
+  .hero-content {
+    max-width: 90%;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .contact-button {
+    bottom: 30px;
+    right: 30px;
+  }
+  
+  /* Scroll indicator removed */
+}
+
+/* Large mobile devices */
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+  
+  .contact-button button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .contact-button {
+    bottom: 25px;
+    right: 25px;
+  }
+  
+  /* Scroll indicator removed */
+}
+
+/* Small mobile devices */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .button-text {
+    display: none;
+  }
+  
+  .contact-button button {
+    padding: 10px;
+    border-radius: 50%;
+  }
+  
+  .chat-icon {
+    margin-left: 0;
+  }
+}
+
+/* Very small mobile devices and landscape orientation adjustments */
+@media (max-width: 320px), (max-height: 500px) and (orientation: landscape) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  .contact-button {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  /* Scroll indicator removed */
+}
+
+/* Landscape orientation on mobile devices */
+@media (max-height: 450px) and (orientation: landscape) {
+  .hero-content {
+    padding-top: 20px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    line-height: 1.3;
+  }
+  
+  /* Scroll indicator removed */
+}
+
+/* High pixel density screens (like iPhone with notch) */
+@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+       screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
+       screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+  .contact-button {
+    bottom: 50px;
+    right: 25px;
+  }
+  
+  .scroll-indicator {
+    bottom: 50px;
+  }
+}
