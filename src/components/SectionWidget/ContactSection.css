@@ -18,7 +18,7 @@
   }
   
   .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #222;
     margin-bottom: 15px;
   }
@@ -48,7 +48,7 @@
   
   .location-card {
     flex: 1;
-    max-width: 500px;
+    max-width: auto;
     background-color: white;
     border-radius: 8px;
     padding: 25px;
@@ -88,7 +88,7 @@
   }
   
   .location-details h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-bottom: 10px;
     color: #333;
   }
