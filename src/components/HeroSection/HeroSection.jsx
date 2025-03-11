@@ -28,7 +28,7 @@ const HeroSection = () => {
     <div className="hero-section">
       <div className="hero-content">
         <h1 className={`hero-title ${visible ? 'visible' : ''}`}>WEALTH</h1>
-        <h2 className={`hero-subtitle ${visible ? 'visible' : ''}`}>RICHES</h2>
+        <h3 className={`hero-subtitle ${visible ? 'visible' : ''}`}>RICHES</h3>
         <h1 className={`hero-title ${visible ? 'visible' : ''}`}>GURUS</h1>
         <p className={`hero-description ${visible ? 'visible' : ''}`}>
           By embracing the Realm of our Wealth organization, 
