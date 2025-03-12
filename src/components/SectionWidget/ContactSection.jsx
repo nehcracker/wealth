@@ -73,7 +73,7 @@ const ContactSection = () => {
       name: 'Sanctuary of Divine Wealth',
       address: 'Kasarmikatu 16 D, 00130 Helsinki, Finland',
       WhatsApp: '+358 (414) 004-493',
-      email: 'Sanctuary@wealthfortune.site',
+      email: 'santuary.wealth@wealthfortune.site',
       mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1985.142935015046!2d24.945499776684667!3d60.161812575028144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc86d1452eb%3A0x3d6cd4b793d2d7fd!2sKasarmikatu%2016d%2C%2000130%20Helsinki%2C%20Finland!5e0!3m2!1sen!2ske!4v1741298984196!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
     },
     {
@@ -81,7 +81,7 @@ const ContactSection = () => {
       name: 'Vessel of Divine Wealth - Center Africa',
       address: 'Unga House, Muthithi Rd, Nairobi, Kenya',
       WhatsApp: '+254 (785) 88 00 72',
-      email: 'Vessel@wealthfortune.site',
+      email: 'wealth.vessel@wealthfortune.site',
       mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.848928338891!2d36.80473579999999!3d-1.2630472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173b871a4741%3A0xd26b273294db1e04!2sUnga%20House!5e0!3m2!1sen!2ske!4v1741298847605!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
     }
   ];

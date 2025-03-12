@@ -10,6 +10,7 @@ import SpiritualVideoSection from './components/SectionWidget/SpiritualVideoSect
 import ContactSection from './components/SectionWidget/ContactSection';
 import SimpleFooter from './components/SectionWidget/SimpleFooter';
 import SpiritualWealthGold from './components/SectionWidget/SpiritualWealthGold';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <SpiritualVideoSection />
         <ContactSection />
         <SimpleFooter />
+        <WhatsAppWidget phoneNumber="+358414004493" message="Hello, I have a question!" />
       </div>
     </HelmetProvider>
 
