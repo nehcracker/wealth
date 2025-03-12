@@ -9,6 +9,7 @@ import SpiritualCard from './components/SectionWidget/SpiritualCards';
 import SpiritualVideoSection from './components/SectionWidget/SpiritualVideoSection';
 import ContactSection from './components/SectionWidget/ContactSection';
 import SimpleFooter from './components/SectionWidget/SimpleFooter';
+import SpiritualWealthGold from './components/SectionWidget/SpiritualWealthGold';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <div className="app">
         <CenteredNavbar />
         <HeroSection />
+        <SpiritualWealthGold />
         <SpiritualCard />
         <LibrarySection />
         <SectionWidget />

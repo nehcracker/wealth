@@ -1,303 +1,282 @@
 /* SpiritualCards.css - Scoped styling for spiritual journey cards */
 
 .spiritual-cards-section {
-    padding: 100px 30px;
-    background-color: #121212;
-    position: relative;
-    overflow: hidden;
+  padding: 100px 30px;
+  background-color: #121212;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.spiritual-cards-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 20%);
+  z-index: 1;
+}
+
+/* Section header styling */
+.section-headers {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-headers h2 {
+  font-family: 'hallen', sans-serif;
+  font-size: 2rem;
+  color: whitesmoke;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.decorative-line {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, gold, transparent);
+  margin: 0 auto;
+}
+
+/* Cards grid layout */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual card styling */
+.card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Card image section */
+.card-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Card overlay with number */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.card-number {
+  width: 40px;
+  height: 40px;
+  background-color: gold;
+  color: #121212;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Card content section */
+.card-content {
+  padding: 25px;
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.card-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: gold;
+  transition: width 0.3s ease;
+}
+
+.card:hover .card-content h3::after {
+  width: 100px;
+}
+
+.card-content p {
+  color: #b0b0b0;
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Read more button */
+.read-more-btn {
+  background-color: transparent;
+  color: gold;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover {
+  transform: translateX(5px);
+}
+
+.read-more-btn:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Responsive styles */
+@media (min-width: 2490px) {
+  .cards-grid {
+    max-width: 2000px;
+    gap: 60px;
   }
   
-  /* Subtle background pattern */
-  .spiritual-cards-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.05) 0%, transparent 20%),
-      radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 20%);
-    z-index: 1;
-  }
-  
-  /* Section header styling */
-  .section-header {
-    font-family: 'hallen', sans-serif;
-    color: whitesmoke;
-    text-align: center;
-    margin-bottom: 60px;
-    position: relative;
-    z-index: 2;
+  .card-image-wrapper {
+    height: 320px;
   }
   
   .section-headers h2 {
-    font-family: 'hallen', sans-serif;
-    font-size: 2rem;
-    color: whitesmoke;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-  
-  .decorative-line {
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, gold, transparent);
-    margin: 0 auto;
-  }
-  
-  /* Cards container */
-  .cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* Individual card styling */
-  .card {
-    flex: 1;
-    max-width: 400px;
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    transform: translateY(50px);
-    opacity: 0;
-    transition: transform 1s ease, opacity 1s ease, box-shadow 0.3s ease;
-    position: relative;
-  }
-  
-  .card.visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  .card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
-    transform: translateY(-5px);
-  }
-  
-  /* Card image section */
-  .card-image-wrapper {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-  }
-  
-  .card-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.5s ease;
-  }
-  
-  .card:hover .card-image {
-    transform: scale(1.05);
-  }
-  
-  /* Card overlay with number */
-  .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-  }
-  
-  .card-number {
-    width: 40px;
-    height: 40px;
-    background-color: gold;
-    color: #121212;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 700;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Card content section */
-  .card-content {
-    padding: 25px;
+    font-size: 3.5rem;
   }
   
   .card-content h3 {
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 15px;
-    position: relative;
-    padding-bottom: 15px;
-  }
-  
-  .card-content h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: gold;
-    transition: width 0.3s ease;
-  }
-  
-  .card:hover .card-content h3::after {
-    width: 100px;
+    font-size: 2rem;
   }
   
   .card-content p {
-    color: #b0b0b0;
-    text-align: justify;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .spiritual-cards-section {
+    padding: 80px 20px;
   }
   
-  /* Read more button */
-  .read-more-btn {
-    background-color: transparent;
-    color: gold;
-    border: none;
-    padding: 0;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease;
+  .section-headers h2 {
+    font-size: 2.2rem;
   }
   
-  .arrow-icon {
-    margin-left: 10px;
-    transition: transform 0.3s ease;
+  .cards-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
   
-  .read-more-btn:hover {
-    transform: translateX(5px);
+  .section-headers {
+    margin-bottom: 40px;
   }
   
-  .read-more-btn:hover .arrow-icon {
-    transform: translateX(5px);
+  .section-headers h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .spiritual-cards-section {
+    padding: 60px 15px;
   }
   
-  /* Responsive styles */
-  @media (min-width: 2490px) {
-    .cards-container {
-      max-width: 2000px;
-      gap: 60px;
-    }
-    
-    .card {
-      max-width: 600px;
-    }
-    
-    .card-image-wrapper {
-      height: 320px;
-    }
-    
-    .section-header h2 {
-      font-size: 3.5rem;
-    }
-    
-    .card-content h3 {
-      font-size: 2rem;
-    }
-    
-    .card-content p {
-      font-size: 1.3rem;
-    }
+  .section-headers h2 {
+    font-size: 1.5rem;
   }
   
-  @media (max-width: 1024px) {
-    .spiritual-cards-section {
-      padding: 80px 20px;
-    }
-    
-    .section-header h2 {
-      font-size: 2.2rem;
-    }
-    
-    .cards-container {
-      gap: 20px;
-    }
+  .card-image-wrapper {
+    height: 180px;
   }
   
-  @media (max-width: 768px) {
-    .cards-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-    
-    .card {
-      width: 100%;
-      max-width: 500px;
-    }
-    
-    .section-header {
-      margin-bottom: 40px;
-    }
-    
-    .section-header h2 {
-      font-size: 1.8rem;
-    }
+  .card-content {
+    padding: 20px;
   }
   
-  @media (max-width: 480px) {
-    .spiritual-cards-section {
-      padding: 60px 15px;
-    }
-    
-    .section-header h2 {
-      font-size: 1.5rem;
-    }
-    
-    .card-image-wrapper {
-      height: 180px;
-    }
-    
-    .card-content {
-      padding: 20px;
-    }
-    
-    .card-content h3 {
-      font-size: 1.3rem;
-    }
+  .card-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Special handling for landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .spiritual-cards-section {
+    padding: 40px 20px;
   }
   
-  /* Special handling for landscape orientation on mobile */
-  @media (max-height: 500px) and (orientation: landscape) {
-    .spiritual-cards-section {
-      padding: 40px 20px;
-    }
-    
-    .section-header {
-      margin-bottom: 30px;
-    }
-    
-    .cards-container {
-      flex-direction: row;
-      overflow-x: auto;
-      padding-bottom: 20px;
-      scroll-snap-type: x mandatory;
-    }
-    
-    .card {
-      min-width: 300px;
-      scroll-snap-align: start;
-    }
-    
-    .card-image-wrapper {
-      height: 150px;
-    }
+  .section-headers {
+    margin-bottom: 30px;
   }
+  
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    overflow-y: auto;
+    max-height: 70vh;
+    padding-right: 10px;
+  }
+}

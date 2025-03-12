@@ -34,15 +34,16 @@ const SpiritualCards = () => {
   const cards = [
     {
       id: 1,
-      title: "Spiritual Compass",
-      description: "In the vastness of life's journey, our souls seek direction. Let your inner compass align with divine truth, guiding you toward enlightenment and purpose.",
-      image: "/spiritual-compass.jpeg",
+      title: "Money Activation",
+      description: "By tapping into divine energy, receiving of the sacred symbol, and embracing money rituals, we remove financial blockages and manifest prosperity beyond limitations.",
+      image: "/Money-Activation.jpg",
+      
       delay: 0
     },
     {
       id: 2,
       title: "Reconnecting Lost Treasure",
-      description: "We restore what was once thought lost wealth, political power, assets, and the bonds of love that transcend time. Through divine alignment and spiritual awakening, we guide you to reclaim your rightful abundance, influence, and treasured connections. Nothing is truly lost; it is simply waiting to be found again.",
+      description: "We restore what was once thought lost: wealth, political power, assets, and the bonds of love that transcend time. Through divine alignment, we guide you to reclaim your rightful abundance.",
       image: "/lost-treasure.jpeg",
       delay: 0.2
     },
@@ -52,6 +53,13 @@ const SpiritualCards = () => {
       description: "The universe whispers its secrets to those who listen. Embrace the wonder of the unseen, the beauty of divine revelation, and the mysteries that lead to deeper understanding.",
       image: "/mystery.jpeg",
       delay: 0.4
+    },
+    {
+      id: 4,
+      title: "Spiritual Compass",
+      description: "In the vastness of life's journey, our souls seek direction. Let your inner compass align with divine truth, guiding you toward enlightenment and purpose.",
+      image: "/spiritual-compass.jpeg",
+      delay: 0.6
     }
   ];
   
@@ -62,7 +70,7 @@ const SpiritualCards = () => {
         <div className="decorative-line"></div>
       </div>
       
-      <div className="cards-container">
+      <div className="cards-grid">
         {cards.map((card) => (
           <div 
             key={card.id} 
