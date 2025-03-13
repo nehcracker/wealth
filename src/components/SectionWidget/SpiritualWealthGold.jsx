@@ -113,8 +113,16 @@ const SpiritualWealthGold = () => {
               <a href="/" className="sw-btn">Discover Techniques</a>
             </div>
           </div>
-          
+
           <div className={`sw-slide ${currentSlide === 3 ? 'sw-active' : ''}`}>
+            <h3>Abundant Grace Financing</h3>
+            <p>We provide funding with low interest rates, no collateral, and no guarantees required empowering you to achieve financial freedom with trust and ease.</p>
+            <div className="sw-slide-actions">
+              <a href="/" className="sw-btn">Discover Techniques</a>
+            </div>
+          </div>
+          
+          <div className={`sw-slide ${currentSlide === 4 ? 'sw-active' : ''}`}>
             <h3>Harnessing Universal Wealth Energy</h3>
             <p>By using manifestation techniques such as affirmations, visualization, and numerology codes, you can align with spiritual forces and attract lasting financial abundance.</p>
             <div className="sw-slide-actions">

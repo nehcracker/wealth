@@ -75,7 +75,7 @@
   display: none;
   text-align: center;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.20s ease;
 }
 
 .sw-slide.sw-active {
