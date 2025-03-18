@@ -25,7 +25,7 @@ function App() {
         <SpiritualVideoSection />
         <ContactSection />
         <SimpleFooter />
-        <WhatsAppWidget phoneNumber="+358414004493" message="Hello, I have a question!" />
+        <WhatsAppWidget phoneNumber="+358404459079" message="Hello, I have a question!" />
       </div>
     </HelmetProvider>
 

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './WhatsAppWidget.css';
 
-const WhatsAppWidget = ({ phoneNumber = '1234567890', message = 'Hello, I have a question!' }) => {
+const WhatsAppWidget = ({ phoneNumber = '+358404459079', message = 'Hello, I have a question!' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMessageVisible, setIsMessageVisible] = useState(false);
 
