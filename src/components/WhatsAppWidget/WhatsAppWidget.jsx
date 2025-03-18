@@ -5,6 +5,7 @@ import './WhatsAppWidget.css';
 const WhatsAppWidget = ({ phoneNumber = '+358404459079', message = 'Hello, I have a question!' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMessageVisible, setIsMessageVisible] = useState(false);
+  
 
   useEffect(() => {
     // Show the widget after a slight delay for better UX
