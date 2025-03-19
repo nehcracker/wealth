@@ -11,6 +11,11 @@ import ContactSection from './components/SectionWidget/ContactSection';
 import SimpleFooter from './components/SectionWidget/SimpleFooter';
 import SpiritualWealthGold from './components/SectionWidget/SpiritualWealthGold';
 import WhatsAppWidget from './components/WhatsAppWidget';
+import ReactGA from "react-ga4";
+ReactGA.initialize("AW-16898712872");
+ReactGA.send("pageview");
+
+
 
 function App() {
   return (
