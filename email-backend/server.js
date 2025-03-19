@@ -11,7 +11,14 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // Middleware
-app.use(cors());
+app.use(
+    cors({
+        origin: "https://wealthfortune.site",
+        credentials: true,
+        methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

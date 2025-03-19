@@ -71,6 +71,7 @@ const ContactSection = () => {
                 `${process.env.REACT_APP_API_URL}/api/email/send`,
                 {
                     method: "POST",
+                    credentials: "include",
                     headers: {
                         "Content-Type": "application/json",
                         "Access-Control-Allow-Origin": "*", // You might need CORS headers
