@@ -68,7 +68,7 @@ const ContactSection = () => {
 
         try {
             const response = await fetch(
-                "http://localhost:5001/api/email/send",
+                `${process.env.REACT_APP_API_URL}/api/email/send`,
                 {
                     method: "POST",
                     headers: {
