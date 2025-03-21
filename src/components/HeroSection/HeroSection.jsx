@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import SEO from "../SEO";
-
 import './HeroSection.css';
 
 const HeroSection = () => {
   const [visible, setVisible] = useState(false);
   
   useEffect(() => {
-    // Trigger animations after component mount with a slight delay
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setVisible(true);
     }, 300);
+    
+    return () => clearTimeout(timer);
   }, []);
 
+const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      const sectionPosition = contactSection.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth'
+      });
+    }
+};
+
+
   return (
-    <div>
-   
-    <SEO
+    <>
+      <SEO
         title="Wealth Riches Gurus | Unlock Financial Success & Wealth Growth"
         description="Join Wealth Riches Gurus and discover proven strategies for wealth creation, financial growth, and investment success."
         keywords="wealth, riches, finance, investment, money, business growth, financial freedom"
@@ -25,22 +36,28 @@ const HeroSection = () => {
         type="website"
       />
       
-    <div className="hero-section">
-      <div className="hero-content">
-        <h1 className={`hero-title ${visible ? 'visible' : ''}`}>WEALTH</h1>
-        <h3 className={`hero-subtitle ${visible ? 'visible' : ''}`}>RICHES</h3>
-        <h1 className={`hero-title ${visible ? 'visible' : ''}`}>GURUS</h1>
-        <p className={`hero-description ${visible ? 'visible' : ''}`}>
-          By embracing the Realm of our Wealth organization, 
-          you become part of the WRG Spiritual Wealth Manifestation, 
-          reconnecting with a global family of 36 million prosperous members, 
-          united in abundance and spiritual growth.
-        </p>
-      </div>
-    </div>
-  
-     
-    </div>
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className={`headline-container ${visible ? 'visible' : ''}`}>
+            <div className="inline-headline">
+              <h1 className="headline-main">wealth gurus & riches</h1>
+              <h2 className="headline-suffix">reconnect lost treasures, & activate financial abundance</h2>
+              <h2 className="headline-suffix">Unlock your wealth, & Money Activation </h2>
+            </div>
+          </div>
+          
+          <p className={`hero-description ${visible ? 'visible' : ''}`}>
+            <strong>Join us today and unlock your financial success!</strong>
+          </p>
+          <button 
+            className={`cta-button ${visible ? 'visible' : ''}`} 
+            onClick={scrollToContact}
+          >
+            Contact Us Now
+          </button>
+        </div>
+      </section>
+    </>
   );
 };
 

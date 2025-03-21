@@ -1,6 +1,6 @@
 /* HeroSection.css */
 .hero-section {
-  height: 90vh;
+  height: 75vh;
   width: 100%;
   margin: auto;
   position: relative;
@@ -33,7 +33,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(23, 23, 23, 0.734);
   z-index: 1;
 }
 
@@ -42,39 +42,61 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  color: grey;
+  color: #fff;
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
-/* Main title styling */
-.hero-title {
-  font-size: 5rem;
-  font-family: 'hallen', sans-serif;
-  margin: 0;
-  margin-bottom: 0.5rem;
+/* Container for inline headline elements */
+.inline-headline {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Subtitle styling */
-.hero-subtitle {
+.headline-container.visible .inline-headline {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Headline elements styling */
+.headline-prefix {
+  font-family: 'hallen', sans-serif;
   font-size: 2rem;
-  font-family: 'hallen', sans-serif;
-  margin: 0;
-  margin-bottom: 0.5rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  transition-delay: 0.3s;
+  margin: 0 1rem 0 0;
+  color: #e0e0e0;
+  font-weight: 300;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.hero-title.visible h2 {
-  text-align: center;
-  font-size: 1.5rem;
+.headline-main {
+  font-family: 'hallen', sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center; /* Center-align for better readability */
+}
+
+
+/* Headline suffix styling */
+.headline-suffix {
+  font-family: 'hallen', sans-serif;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin: 0 0 0 1rem;
+  color: #ffb100; /* Gold color */
+  font-weight: 300;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: justify; /* Justify alignment */
 }
 
 /* Description text styling */
@@ -83,69 +105,59 @@
   color: white;
   line-height: 1.6;
   margin-top: 1.5rem;
+  margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
   transition-delay: 0.6s;
 }
 
-/* Animation classes */
-.hero-title.visible,
-.hero-subtitle.visible,
 .hero-description.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Scroll indicator styling removed */
-
-/* Contact button styling */
-.contact-button {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  z-index: 2;
-}
-
-.contact-button button {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  color: black;
+/* CTA Button styling */
+.cta-button {
+  background-color: #ffb100;
+  color: #000;
   border: none;
-  border-radius: 30px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.3s ease;
+  transition-delay: 0.9s;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.contact-button button:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.contact-button button:active {
+.cta-button.visible {
+  opacity: 1;
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.chat-icon {
-  margin-left: 8px;
+.cta-button:hover {
+  background-color: #ffc340;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
-/* Bounce animation removed */
 
 /* Large desktop screens */
 @media (min-width: 1440px) {
-  .hero-title {
-    font-size: 6rem;
+  .headline-main {
+    font-size: 3.5rem;
+    text-transform: uppercase;
   }
   
-  .hero-subtitle {
-    font-size: 3rem;
+  .headline-prefix, .headline-suffix {
+    font-size: 1.5rem;
+    text-align: justify;
+    font-family: 'hallen', sans-serif;
+    color: #ffb100;
   }
   
   .hero-description {
@@ -155,77 +167,68 @@
 
 /* Regular laptops and small desktops */
 @media (max-width: 1200px) {
-  .hero-title {
-    font-size: 4.5rem;
+  .headline-main {
+    font-size: 3.8rem;
   }
   
-  .hero-subtitle {
-    font-size: 2.2rem;
+  .headline-prefix, .headline-suffix {
+    font-size: 1.9rem;
   }
 }
 
 /* Tablets and small laptops */
 @media (max-width: 992px) {
-  .hero-section h2 {
-    font-size: 2rem;
-    text-align: justify;
-  }
-  .hero-title {
-    font-size: 4rem;
+  .headline-main {
+    font-size: 3.4rem;
   }
   
-  .hero-subtitle {
-    font-size: 2rem;
+  .headline-prefix, .headline-suffix {
+    font-size: 1.7rem;
   }
   
   .hero-description {
     font-size: 1rem;
   }
-  
-  .contact-button {
-    bottom: 40px;
-    right: 40px;
-  }
 }
 
-/* Tablets portrait */
+/* Medium devices */
 @media (max-width: 768px) {
-
-  .hero-section h2 {
-    font-size: 1.8rem;
-    text-align: justify;
+  .inline-headline {
+    flex-direction: row;
   }
-
-  .hero-section {
-    height: 50vh;
+  
+  .headline-main {
+    font-size: 2rem;
+    text-transform: uppercase;
   }
+  
+  .headline-prefix, .headline-suffix {
+    font-size: 1.5rem;
+  }
+  
   .hero-content {
-    max-width: 90%;
+    max-width: 600px;
   }
-  
-  .hero-title {
-    font-size: 3.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.8rem;
-  }
-  
-  .contact-button {
-    bottom: 30px;
-    right: 30px;
-  }
-  
-  /* Scroll indicator removed */
 }
 
 /* Large mobile devices */
 @media (max-width: 576px) {
-  .hero-title {
-    font-size: 2.8rem;
+  .inline-headline {
+    flex-direction: column;
+    align-items: center;
   }
   
-  .hero-subtitle {
+  .headline-prefix, .headline-main, .headline-suffix {
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .headline-main {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  
+  .headline-prefix, .headline-suffix {
     font-size: 1.5rem;
   }
   
@@ -234,40 +237,23 @@
     margin-top: 1rem;
   }
   
-  .contact-button button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 1rem;
   }
-  
-  .contact-button {
-    bottom: 25px;
-    right: 25px;
-  }
-
-  .hero-headers h2 {
-    font-size: 1.5rem;
-    text-align: justify;
-  }
-  
-  /* Scroll indicator removed */
 }
 
 /* Small mobile devices */
 @media (max-width: 375px) {
-
-  .hero-section h2 {
-    font-size: 1.3rem;
-    text-align: justify;
-  }
   .hero-section {
-    height: 50vh;
+    height: 75vh;
   }
 
-  .hero-title {
-    font-size: 2.3rem;
+  .headline-main {
+    font-size: 2rem;
   }
   
-  .hero-subtitle {
+  .headline-prefix, .headline-suffix {
     font-size: 1.2rem;
   }
   
@@ -275,27 +261,23 @@
     font-size: 0.9rem;
   }
   
-  .button-text {
-    display: none;
-  }
-  
-  .contact-button button {
-    padding: 10px;
-    border-radius: 50%;
-  }
-  
-  .chat-icon {
-    margin-left: 0;
+  .cta-button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
   }
 }
 
-/* Very small mobile devices and landscape orientation adjustments */
-@media (max-width: 320px), (max-height: 500px) and (orientation: landscape) {
-  .hero-title {
+/* Very small mobile devices */
+@media (max-width: 320px) {
+  .hero-section {
+    height: 80vh;
+  }
+  
+  .headline-main {
     font-size: 2rem;
   }
   
-  .hero-subtitle {
+  .headline-prefix, .headline-suffix {
     font-size: 1rem;
   }
   
@@ -303,60 +285,85 @@
     font-size: 0.85rem;
     line-height: 1.4;
   }
-  
-  .contact-button {
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .hero-section h2 {
-    font-size: 1rem;
-    text-align: justify;
-  }
-  
-  /* Scroll indicator removed */
 }
 
 /* Landscape orientation on mobile devices */
 @media (max-height: 450px) and (orientation: landscape) {
-  .hero-section h2 {
-    font-size: 1.2rem;
-    text-align: justify;
+  .hero-section {
+    height: 100vh;
   }
-
+  
   .hero-content {
-    padding-top: 20px;
+    margin-top: 20px;
   }
   
-  .hero-title {
-    font-size: 2rem;
-    margin-bottom: 0.2rem;
+  .inline-headline {
+    margin-bottom: 1rem;
   }
   
-  .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
+  .headline-main {
+    font-size: 2.2rem;
+  }
+  
+  .headline-prefix, .headline-suffix {
+    font-size: 1.1rem;
   }
   
   .hero-description {
     font-size: 0.85rem;
     margin-top: 0.5rem;
+    margin-bottom: 1rem;
     line-height: 1.3;
   }
-  
-  /* Scroll indicator removed */
 }
 
-/* High pixel density screens (like iPhone with notch) */
-@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
-       screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
-       screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
-  .contact-button {
-    bottom: 50px;
-    right: 25px;
+/* Responsive adjustments for headline-main and headline-suffix */
+@media (max-width: 1200px) {
+  .headline-main {
+    font-size: 2.8rem;
   }
-  
-  .scroll-indicator {
-    bottom: 50px;
+
+  .headline-suffix {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .headline-main {
+    font-size: 2.5rem;
+  }
+
+  .headline-suffix {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headline-main {
+    font-size: 2.2rem;
+  }
+
+  .headline-suffix {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .headline-main {
+    font-size: 2rem;
+  }
+
+  .headline-suffix {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .headline-main {
+    font-size: 1.8rem;
+  }
+
+  .headline-suffix {
+    font-size: 0.7rem;
   }
 }

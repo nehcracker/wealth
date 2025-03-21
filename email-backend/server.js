@@ -1,34 +1,31 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const emailRoutes = require('./emailroutes');
-const errorHandler = require('./errorhandling');
-
-dotenv.config();
-
+const transporter = require('./emailconfig');
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(
-    cors({
-        origin: "https://wealthfortune.site",
-        credentials: true,
-        methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-    })
-);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes
-app.use('/api/email', emailRoutes);
+app.use(express.json());
 
-// Error Handling Middleware
-app.use(errorHandler);
+// Test email sending endpoint
+app.post('/test-email', async (req, res) => {
+    const mailOptions = {
+        from: process.env.ZOHO_USER,
+        to: process.env.DEFAULT_TO,
+        subject: 'Test Email',
+        text: 'This is a test email to verify the email server configuration.',
+    };
 
-// Start Server
+    try {
+        const info = await transporter.sendMail(mailOptions);
+        console.log('Email sent: ' + info.response);
+        res.status(200).send('Test email sent successfully!');
+    } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(500).send('Failed to send test email.');
+    }
+});
+
+// Start the server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

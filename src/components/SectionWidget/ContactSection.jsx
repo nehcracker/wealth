@@ -45,6 +45,7 @@ const ContactSection = () => {
             [name]: value,
         });
     };
+    
 
     // const handleSubmit = (e) => {
     //   e.preventDefault();
@@ -63,7 +64,26 @@ const ContactSection = () => {
     //   alert('Your message has been sent. We will contact you shortly.');
     // };
 
-    const handleSubmit = async (e) => {
+const gtag_report_conversion = (url) => {
+  // eslint-disable-next-line no-undef
+
+
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+                // eslint-disable-next-line no-undef
+                gtag('event', 'conversion', {
+
+      'send_to': 'AW-16898712872/T3iGCObq3qwaEKjK9_k-',
+      'event_callback': callback
+  });
+  return false;
+}
+
+const handleSubmit = async (e) => {
+
         e.preventDefault();
 
         try {
@@ -90,7 +110,9 @@ const ContactSection = () => {
             console.log(data);
 
             if (response.ok) {
-                // Show success message to user
+                // Call conversion tracking
+                gtag_report_conversion();
+
                 alert("Message sent successfully!");
                 // Reset form
                 // setFormData(initialFormState); // adjust based on how you manage form state
@@ -128,7 +150,8 @@ const ContactSection = () => {
     ];
 
     return (
-        <div ref={sectionRef} className="contact-section">
+<div ref={sectionRef} id="contact-section" className="contact-section">
+
             <div className="contact-section-inner">
                 <div className="section-header">
                     <h2>Connect With Us</h2>
