@@ -3,7 +3,6 @@ const transporter = require('./emailconfig');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-
 app.use(express.json());
 
 // Test email sending endpoint
