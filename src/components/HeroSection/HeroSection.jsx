@@ -41,8 +41,7 @@ const scrollToContact = () => {
           <div className={`headline-container ${visible ? 'visible' : ''}`}>
             <div className="inline-headline">
               <h1 className="headline-main">wealth gurus & riches</h1>
-              <h2 className="headline-suffix">reconnect lost treasures, & activate financial abundance</h2>
-              <h2 className="headline-suffix">Unlock your wealth, & Money Activation </h2>
+              <h2 className="headline-suffix">Restoring Wealth, Power, Spiritual Harmony & Money Activation </h2>
             </div>
           </div>
           
