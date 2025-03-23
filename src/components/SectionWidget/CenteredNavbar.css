@@ -37,7 +37,7 @@
 }
 
 .logo-image {
-  height: 60px;
+  height: 90px;
   transition: all 0.3s ease;
 }
 
@@ -220,5 +220,43 @@
   
   .scrolled .logo-image {
     height: 30px;
+  }
+}
+
+/* Mobile logo styling */
+.mobile-logo-container {
+  display: none; /* Hidden by default on desktop */
+}
+
+.mobile-logo {
+  height: 50px; /* Adjust this value based on your desired size */
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.mobile-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Show mobile logo on smaller screens */
+@media screen and (max-width: 768px) {
+  .mobile-logo-container {
+    display: flex;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  /* Adjust mobile logo size when navbar is scrolled */
+  .scrolled .mobile-logo {
+    height: 32px; /* Slightly smaller when scrolled */
+  }
+  
+  /* Hide desktop logo on mobile */
+  .navbar-menu .logo-link {
+    display: none;
   }
 }

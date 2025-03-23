@@ -42,10 +42,22 @@ const CenteredNavbar = () => {
   return (
     <nav className={`centered-navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
+        {/* Mobile logo that appears on smaller screens */}
+        <div className="mobile-logo-container">
+          <a href="/" className="mobile-logo-link">
+            <img 
+              src="/logo.png" 
+              alt="Wealth Gurus Logo" 
+              className="mobile-logo" 
+            />
+          </a>
+        </div>
+        
         <button 
           className={`hamburger-menu ${menuOpen ? 'open' : ''}`} 
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           <span></span>
           <span></span>
@@ -54,15 +66,15 @@ const CenteredNavbar = () => {
         
         <ul className={`navbar-menu ${menuOpen ? 'open' : ''}`}>
           <li><a href="/about" onClick={() => setMenuOpen(false)}>About us</a></li>
-          <li><a href="/" className="logo-link">
-            <div className="logo">
+          <li>
+            <a href="/" className="logo-link">
               <img 
                 src="/logo.png" 
                 alt="Wealth Gurus Logo" 
                 className="logo-image" 
               />
-            </div>
-          </a></li>
+            </a>
+          </li>
           <li><a href="/contact" onClick={() => setMenuOpen(false)}>Contact us</a></li>
         </ul>
       </div>

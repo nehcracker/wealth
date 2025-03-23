@@ -8,14 +8,12 @@ const SimpleFooter = () => {
     <footer className="simple-footer">
       <div className="footer-container">
         <div className="footer-logo">
-          <h3>Wealth Gurus</h3>
+          <h3>Bulmogul Wealth Gurus & Riches</h3>
         </div>
         
         <div className="footer-links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-          <a href="#privacy">Privacy Policy</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </div>
         
         <div className="footer-social">
