@@ -45,45 +45,22 @@ const ContactSection = () => {
             [name]: value,
         });
     };
-    
 
-    // const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   // Form submission logic would go here
-    //   console.log('Form submitted:', formData);
-
-    //   // Reset form after submission
-    //   setFormData({
-    //     name: '',
-    //     email: '',
-    //     subject: '',
-    //     message: ''
-    //   });
-
-    //   // Show success message or other feedback
-    //   alert('Your message has been sent. We will contact you shortly.');
-    // };
-
-const gtag_report_conversion = (url) => {
-  // eslint-disable-next-line no-undef
-
-
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
+    const gtag_report_conversion = (url) => {
+        var callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        // eslint-disable-next-line no-undef
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16898712872/T3iGCObq3qwaEKjK9_k-',
+            'event_callback': callback
+        });
+        return false;
     }
-  };
-                // eslint-disable-next-line no-undef
-                gtag('event', 'conversion', {
 
-      'send_to': 'AW-16898712872/T3iGCObq3qwaEKjK9_k-',
-      'event_callback': callback
-  });
-  return false;
-}
-
-const handleSubmit = async (e) => {
-
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
@@ -94,10 +71,10 @@ const handleSubmit = async (e) => {
                     credentials: "include",
                     headers: {
                         "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": "*", // You might need CORS headers
+                        "Access-Control-Allow-Origin": "*",
                     },
                     body: JSON.stringify({
-                        name: formData.name, // adjust these field names to match your form state
+                        name: formData.name,
                         email: formData.email,
                         subject: formData.subject,
                         message: formData.message,
@@ -110,14 +87,9 @@ const handleSubmit = async (e) => {
             console.log(data);
 
             if (response.ok) {
-                // Call conversion tracking
                 gtag_report_conversion();
-
                 alert("Message sent successfully!");
-                // Reset form
-                // setFormData(initialFormState); // adjust based on how you manage form state
             } else {
-                // Handle error
                 alert(data.error || "Failed to send message");
             }
         } catch (error) {
@@ -135,23 +107,24 @@ const handleSubmit = async (e) => {
             id: 1,
             name: "Sanctuary of Divine Wealth",
             address: "Kasarmikatu 16 D, 00130 Helsinki, Finland",
-            phone: "+358 (404) 459-079",
+            phone: "+358404459079",
             email: "santuary.wealth@wealthfortune.site",
             mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1985.142935015046!2d24.945499776684667!3d60.161812575028144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc86d1452eb%3A0x3d6cd4b793d2d7fd!2sKasarmikatu%2016d%2C%2000130%20Helsinki%2C%20Finland!5e0!3m2!1sen!2ske!4v1741298984196!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+            whatsapp: "https://wa.me/358404459079",
         },
         {
             id: 2,
             name: "Vessel of Divine Wealth - Center Africa",
             address: "Unga House, Muthithi Rd, Nairobi, Kenya",
-            phone: "+254 785 88 00 72",
+            phone: "+254785880072",
             email: "wealth.vessel@wealthfortune.site",
             mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.848928338891!2d36.80473579999999!3d-1.2630472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173b871a4741%3A0xd26b273294db1e04!2sUnga%20House!5e0!3m2!1sen!2ske!4v1741298847605!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+            whatsapp: "https://wa.me/254785880072",
         },
     ];
 
     return (
-<div ref={sectionRef} id="contact-section" className="contact-section">
-
+        <div ref={sectionRef} id="contact-section" className="contact-section">
             <div className="contact-section-inner">
                 <div className="section-header">
                     <h2>Connect With Us</h2>
@@ -183,10 +156,22 @@ const handleSubmit = async (e) => {
                                 </p>
                                 <div className="location-contact">
                                     <p>
-                                        <span>Phone:</span> {location.phone}
+                                        <span>Phone:</span>{" "}
+                                        <a 
+                                            href={`https://wa.me/${location.phone.replace(/\+/g, '')}`} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                        >
+                                            {location.phone}
+                                        </a>
                                     </p>
                                     <p>
-                                        <span>Email:</span> {location.email}
+                                        <span>Email:</span>{" "}
+                                        <a 
+                                            href={`mailto:${location.email}`}
+                                        >
+                                            {location.email}
+                                        </a>
                                     </p>
                                 </div>
                             </div>

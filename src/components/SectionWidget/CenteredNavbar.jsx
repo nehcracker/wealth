@@ -39,6 +39,11 @@ const CenteredNavbar = () => {
     };
   }, [menuOpen]);
   
+  // Close menu after navigation
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+  
   return (
     <nav className={`centered-navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
@@ -65,7 +70,11 @@ const CenteredNavbar = () => {
         </button>
         
         <ul className={`navbar-menu ${menuOpen ? 'open' : ''}`}>
-          <li><a href="/about" onClick={() => setMenuOpen(false)}>About us</a></li>
+          {/* Added Home menu item for mobile */}
+          <li className="mobile-only">
+            <a href="/" onClick={closeMenu}>Home</a>
+          </li>
+          <li><a href="/about" onClick={closeMenu}>About us</a></li>
           <li>
             <a href="/" className="logo-link">
               <img 
@@ -75,7 +84,7 @@ const CenteredNavbar = () => {
               />
             </a>
           </li>
-          <li><a href="/contact" onClick={() => setMenuOpen(false)}>Contact us</a></li>
+          <li><a href="/contact" onClick={closeMenu}>Contact us</a></li>
         </ul>
       </div>
     </nav>
