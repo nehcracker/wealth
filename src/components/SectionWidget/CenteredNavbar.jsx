@@ -75,6 +75,8 @@ const CenteredNavbar = () => {
             <a href="/" onClick={closeMenu}>Home</a>
           </li>
           <li><a href="/about" onClick={closeMenu}>About us</a></li>
+        
+
           <li>
             <a href="/" className="logo-link">
               <img 
@@ -90,5 +92,6 @@ const CenteredNavbar = () => {
     </nav>
   );
 };
+
 
 export default CenteredNavbar;

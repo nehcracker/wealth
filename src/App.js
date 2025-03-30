@@ -1,8 +1,6 @@
 import React from 'react';
 import { HelmetProvider } from "react-helmet-async";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import './App.css';
 
 // Components for Home page
@@ -16,6 +14,7 @@ import ContactSection from './components/SectionWidget/ContactSection';
 import SimpleFooter from './components/SectionWidget/SimpleFooter';
 import SpiritualWealthGold from './components/SectionWidget/SpiritualWealthGold';
 import WhatsAppWidget from './components/WhatsAppWidget';
+import WealthGurusApp from './components/WealthGurusApp/WealthGurusApp';
 
 // Page components
 import BulmogulApp from './components/about us/BulmogulApp';
@@ -45,13 +44,12 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
-        <CenteredNavbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<BulmogulApp />} />
-          <Route path="/contact" element={<ContactSection />} />
+          <Route path="/" element={<><CenteredNavbar /><HomePage /><SimpleFooter /></>} />
+          <Route path="/about" element={<><CenteredNavbar /><BulmogulApp /><SimpleFooter /></>} />
+          <Route path="/contact" element={<><CenteredNavbar /><ContactSection /><SimpleFooter /></>} />
+          <Route path="/wealthgurus" element={<WealthGurusApp />} /> {/* No Navbar or Footer here */}
         </Routes>
-        <SimpleFooter />
       </Router>
     </HelmetProvider>
   );
