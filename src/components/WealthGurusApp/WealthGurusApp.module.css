@@ -22,50 +22,44 @@
   .logoContainer {
     padding: 24px;
     text-align: center;
-    background-image: url("/public/library-background.jpg");
+    background-image: url("/public/spiritual-compass.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
 
-  .logo {
-    width: 100px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .logo {
-    width: 120px;
-    height: 120px;
-    background-color: #0a174700;
-    border-radius: 50%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #D4AF37;
-    font-weight: bold;
-  }
+  /* Logo styling */
+.logo {
+  width: 120px; /* Default width for the logo */
+  height: 120px; /* Default height for the logo */
+  background-color: #d4af37b7;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #D4AF37;
+  font-weight: bold;
+  overflow: hidden; /* Ensures the logo stays within the circle */
+}
   
   .cardContent {
     padding: 0 24px 24px;
   }
   
   .cardTitle {
-    font-size: 28px;
+    font-size: 24px; /* Adjusted for better readability */
     color: #0A1747;
     text-align: center;
     margin-bottom: 16px;
     font-weight: 700;
   }
-
+  
   .cardTitle2 {
-    font-size: 15px;
+    font-size: 18px; /* Slightly larger for better visibility */
     color: #0A1747;
     text-align: center;
-    text-decoration: dashed;
     margin-bottom: 16px;
     font-weight: 700;
   }
@@ -75,6 +69,7 @@
     color: #666;
     margin-bottom: 24px;
     line-height: 1.6;
+    font-size: 16px; /* Adjusted for readability */
   }
   
   .contactSectionsRow {
@@ -139,3 +134,42 @@
       flex-direction: column;
     }
   }
+
+  /* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo {
+    width: 100px; /* Smaller logo for tablets */
+    height: 100px;
+  }
+
+  .cardTitle {
+    font-size: 20px; /* Adjusted for smaller screens */
+  }
+
+  .cardTitle2 {
+    font-size: 16px;
+  }
+
+  .cardDescription {
+    font-size: 14px; /* Smaller text for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 80px; /* Smaller logo for mobile devices */
+    height: 80px;
+  }
+
+  .cardTitle {
+    font-size: 18px; /* Adjusted for mobile screens */
+  }
+
+  .cardTitle2 {
+    font-size: 14px;
+  }
+
+  .cardDescription {
+    font-size: 12px; /* Smaller text for mobile readability */
+  }
+}

@@ -35,7 +35,7 @@ const WealthGurusApp = () => {
       >
         <div className={styles.logoContainer}>
         <img 
-            src={`${process.env.PUBLIC_URL}/cross.png`} 
+            src={`${process.env.PUBLIC_URL}/illuminati.png`} 
             alt="Wealth Gurus Logo" 
             className={styles.logo} 
           />
@@ -43,7 +43,7 @@ const WealthGurusApp = () => {
         </div>
         
         <div className={styles.cardContent}>
-          <h1 className={styles.cardTitle}>Business Card</h1>
+          <h1 className={styles.cardTitle}>Celestial Convocation Address</h1>
           <h2 className={styles.cardTitle2}>Wealth Gurus & Riches</h2>
           <p className={styles.cardDescription}>
             We are dedicated to restoring lost wealth, political influence, and divine balance through ancient spiritual wisdom, deep mystical practices, and sacred rituals.
@@ -108,7 +108,7 @@ const WealthGurusApp = () => {
           </div>
           
           <a 
-            href="https://wealthfortune.site/" 
+            href="https://wealthfortune.site/about" 
             className={styles.ctaButton} 
             target="_blank" 
             rel="noopener noreferrer"
@@ -121,7 +121,7 @@ const WealthGurusApp = () => {
               e.currentTarget.style.color = '#D4AF37';
             }}
           >
-            Join Us Today & Unlock Financial Success
+            Join Us Today & Unlock Divine Abundance
           </a>
         </div>
       </div>
