@@ -35,7 +35,7 @@ const WealthGurusApp = () => {
       >
         <div className={styles.logoContainer}>
         <img 
-            src={`${process.env.PUBLIC_URL}/illuminati.png`} 
+            src={`${process.env.PUBLIC_URL}/cross.png`} 
             alt="Wealth Gurus Logo" 
             className={styles.logo} 
           />
